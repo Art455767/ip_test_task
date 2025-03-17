@@ -14,27 +14,29 @@ import androidx.compose.runtime.setValue
 import com.example.ip_test_task.data.local.entities.Item
 
 @Composable
-fun EditItemDialog(item: Item, onDismiss: () -> Unit, onSave: (Item) -> Unit) {
-    var amount by remember { mutableIntStateOf(item.amount) }
+fun AddItemDialog(onDismiss: () -> Unit, onSave: (Item) -> Unit) {
+    var name by remember { mutableStateOf("") }
+    var tags by remember { mutableStateOf("") }
+    var amount by remember { mutableIntStateOf(0) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Редактировать товар") },
+        title = { Text("Добавить товар") },
         text = {
             Column {
-                Text(text = "Название: ${item.name}")
+                TextField(value = name, onValueChange = { name = it }, label = { Text("Название") })
+                TextField(value = tags, onValueChange = { tags = it }, label = { Text("Теги") })
                 TextField(
                     value = amount.toString(),
-                    onValueChange = { newValue ->
-                        amount = newValue.toIntOrNull() ?: 0
-                    },
+                    onValueChange = { amount = it.toIntOrNull() ?: 0 },
                     label = { Text("Количество") }
                 )
             }
         },
         confirmButton = {
             Button(onClick = {
-                onSave(item.copy(amount = amount))
+                val newItem = Item(id = 0, name = name, time = System.currentTimeMillis(), tags = tags, amount = amount)
+                onSave(newItem)
             }) {
                 Text("Сохранить")
             }
