@@ -8,7 +8,6 @@ import com.example.ip_test_task.presentation.screens.MainScreen
 import com.example.ip_test_task.presentation.viewmodels.ItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

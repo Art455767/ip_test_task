@@ -32,7 +32,8 @@ fun MainScreen(viewModel: ItemViewModel) {
     val items by viewModel.items.observeAsState(emptyList())
     var searchQuery by remember { mutableStateOf("") }
     var selectedItem by remember { mutableStateOf<Item?>(null) }
-    var showAddItemDialog by remember { mutableStateOf(false) }
+    var showEditItemDialog by remember { mutableStateOf(false) }
+    var showDeleteDialog by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -55,23 +56,48 @@ fun MainScreen(viewModel: ItemViewModel) {
         LazyColumn {
             items?.let {
                 items(it.filter { it.name.contains(searchQuery, ignoreCase = true) }) { item ->
-                    ItemCard(item, onEdit = { selectedItem = item }, onDelete = { viewModel.deleteItem(item) })
+                    ItemCard(
+                        item,
+                        onEdit = {
+                            selectedItem = item
+                            showEditItemDialog = true
+                        },
+                        onDelete = {
+                            selectedItem = item
+                            showDeleteDialog = true
+                        }
+                    )
                 }
             }
         }
 
-        selectedItem?.let {
-            EditItemDialog(item = it, onDismiss = { selectedItem = null }, onSave = { updatedItem ->
-                viewModel.insertItem(updatedItem)
-                selectedItem = null
-            })
+        if (showEditItemDialog && selectedItem != null) {
+            EditItemDialog(
+                item = selectedItem!!,
+                onDismiss = {
+                    showEditItemDialog = false
+                    selectedItem = null
+                },
+                onSave = { updatedItem ->
+                    viewModel.insertItem(updatedItem)
+                    showEditItemDialog = false
+                    selectedItem = null
+                }
+            )
         }
 
-        if (showAddItemDialog) {
-            AddItemDialog(onDismiss = { showAddItemDialog = false }, onSave = { newItem ->
-                viewModel.insertItem(newItem)
-                showAddItemDialog = false
-            })
+        if (showDeleteDialog && selectedItem != null) {
+            DeleteConfirmationDialog(
+                onDismiss = {
+                    showDeleteDialog = false
+                    selectedItem = null
+                },
+                onDeleteConfirmed = {
+                    viewModel.deleteItem(selectedItem!!)
+                    showDeleteDialog = false
+                    selectedItem = null
+                }
+            )
         }
     }
 }

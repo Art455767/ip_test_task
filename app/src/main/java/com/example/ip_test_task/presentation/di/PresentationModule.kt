@@ -1,7 +1,5 @@
 package com.example.ip_test_task.presentation.di
 
-import com.example.ip_test_task.data.local.ItemDao
-import com.example.ip_test_task.data.repositories.ItemRepositoryImpl
 import com.example.ip_test_task.domain.repositories.ItemRepository
 import com.example.ip_test_task.domain.usecases.DeleteItemUseCase
 import com.example.ip_test_task.domain.usecases.GetItemsUseCase

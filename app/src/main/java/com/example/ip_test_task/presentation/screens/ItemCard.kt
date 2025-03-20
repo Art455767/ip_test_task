@@ -63,7 +63,6 @@ fun ItemCard(item: Item, onEdit: () -> Unit, onDelete: () -> Unit) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-
                     IconButton(onClick = onEdit, modifier = Modifier.size(24.dp)) {
                         Icon(
                             imageVector = Icons.Default.Edit,
@@ -110,7 +109,7 @@ fun ItemCard(item: Item, onEdit: () -> Unit, onDelete: () -> Unit) {
                 verticalAlignment = Alignment.Bottom
             ) {
                 Column(
-                    modifier = Modifier.padding(start = 12.dp, bottom = 0.dp)
+                    modifier = Modifier.padding(start = 14.dp, bottom = 0.dp)
                 ) {
                     Text(
                         text = "На складе",

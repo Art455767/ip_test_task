@@ -3,12 +3,11 @@ package com.example.ip_test_task.presentation.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ip_test_task.data.local.entities.Item
+import com.example.ip_test_task.domain.repositories.ItemRepository
+import com.example.ip_test_task.domain.usecases.DeleteItemUseCase
 import com.example.ip_test_task.domain.usecases.GetItemsUseCase
 import com.example.ip_test_task.domain.usecases.InsertItemUseCase
-import com.example.ip_test_task.domain.usecases.DeleteItemUseCase
-import com.example.ip_test_task.data.local.entities.Item
-import com.example.ip_test_task.data.repositories.ItemRepositoryImpl
-import com.example.ip_test_task.domain.repositories.ItemRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,7 +17,7 @@ class ItemViewModel @Inject constructor(
     private val getItemsUseCase: GetItemsUseCase,
     private val insertItemUseCase: InsertItemUseCase,
     private val deleteItemUseCase: DeleteItemUseCase,
-    private val itemRepository: ItemRepository
+    private val itemRepository: ItemRepository,
 ) : ViewModel() {
 
     private val _items = MutableLiveData<List<Item>?>()
@@ -34,6 +33,7 @@ class ItemViewModel @Inject constructor(
             _items.value = getItemsUseCase()
         }
     }
+
     private fun initializeItems() {
         viewModelScope.launch {
             itemRepository.initializeItems()
