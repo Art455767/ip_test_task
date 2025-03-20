@@ -9,5 +9,5 @@ data class Item(
     val name: String,
     val time: Long,
     val tags: String,
-    var amount: Int
+    var amount: Int,
 )
