@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -27,8 +28,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ip_test_task.R
 import com.example.ip_test_task.data.local.entities.Item
 
 @Composable
@@ -46,7 +49,6 @@ fun EditItemDialog(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
-
                 Icon(
                     imageVector = Icons.Default.Settings,
                     contentDescription = "Настройки",
@@ -72,7 +74,6 @@ fun EditItemDialog(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
                 ) {
-
                     Box(
                         modifier = Modifier
                             .size(48.dp)
@@ -82,20 +83,21 @@ fun EditItemDialog(
                         Text(
                             text = "-",
                             fontSize = 24.sp,
-                            color = Color.Blue,
+                            color = colorResource(id = R.color.birch),
                             modifier = Modifier
-                                .border(BorderStroke(2.dp, Color.Blue), CircleShape)
+                                .border(BorderStroke(2.dp, colorResource(id = R.color.birch)), CircleShape)
                                 .size(32.dp)
                                 .padding(vertical = 2.dp, horizontal = 12.dp)
-
                         )
                     }
 
-                    Text(
-                        text = quantity.toString(),
-                        fontSize = 20.sp,
-                        modifier = Modifier.padding(horizontal = 10.dp)
-                    )
+                    Box(modifier = Modifier.height(36.dp)) {
+                        Text(
+                            text = quantity.toString(),
+                            fontSize = 20.sp,
+                            modifier = Modifier.padding(horizontal = 10.dp)
+                        )
+                    }
 
                     Box(
                         modifier = Modifier
@@ -106,12 +108,11 @@ fun EditItemDialog(
                         Text(
                             text = "+",
                             fontSize = 24.sp,
-                            color = Color.Blue,
+                            color = colorResource(id = R.color.birch),
                             modifier = Modifier
-                                .border(BorderStroke(2.dp, Color.Blue), CircleShape)
+                                .border(BorderStroke(2.dp, colorResource(id = R.color.birch)), CircleShape)
                                 .size(32.dp)
                                 .padding(vertical = 2.dp, horizontal = 9.dp)
-
                         )
                     }
                 }
@@ -125,7 +126,7 @@ fun EditItemDialog(
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) {
-                Text(text = "Принять", color = Color.Blue)
+                Text(text = "Принять", color = colorResource(id = R.color.birch))
             }
         },
         dismissButton = {
@@ -133,9 +134,9 @@ fun EditItemDialog(
                 onClick = onDismiss,
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) {
-                Text(text = "Отмена", color = Color.Blue)
+                Text(text = "Отмена", color = colorResource(id = R.color.birch))
             }
         },
-        shape = RoundedCornerShape(8.dp)
+        shape = RoundedCornerShape(36.dp)
     )
 }
