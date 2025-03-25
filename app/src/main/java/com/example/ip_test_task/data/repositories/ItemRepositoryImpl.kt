@@ -3,9 +3,11 @@ package com.example.ip_test_task.data.repositories
 import com.example.ip_test_task.data.local.ItemDao
 import com.example.ip_test_task.data.local.entities.Item
 import com.example.ip_test_task.domain.repositories.ItemRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 
 class ItemRepositoryImpl(private val itemDao: ItemDao) : ItemRepository {
-    override suspend fun getAllItems(): List<Item> {
+    override suspend fun getAllItems(): Flow<List<Item>> {
         return itemDao.getAllItems()
     }
 
@@ -18,7 +20,7 @@ class ItemRepositoryImpl(private val itemDao: ItemDao) : ItemRepository {
     }
 
     override suspend fun initializeItems() {
-        val existingItems = getAllItems()
+        val existingItems = itemDao.getAllItems().first()
         if (existingItems.isEmpty()) {
             val itemsToInsert = listOf(
                 Item(

@@ -24,13 +24,15 @@ class ItemViewModel @Inject constructor(
     val items: MutableLiveData<List<Item>?> get() = _items
 
     init {
-        loadItems()
         initializeItems()
+        loadItems()
     }
 
     private fun loadItems() {
         viewModelScope.launch {
-            _items.value = getItemsUseCase()
+            getItemsUseCase().collect { itemList ->
+                _items.value = itemList
+            }
         }
     }
 

@@ -6,11 +6,12 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.ip_test_task.data.local.entities.Item
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ItemDao {
     @Query("SELECT * FROM item")
-    suspend fun getAllItems(): List<Item>
+    fun getAllItems(): Flow<List<Item>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertItem(item: Item)
