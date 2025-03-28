@@ -22,8 +22,10 @@ object DataModule {
         return Room.databaseBuilder(
             context,
             AppDatabase::class.java,
-            "app_database"
-        ).build()
+            "data.db"
+        )
+            .createFromAsset("data.db")
+            .build()
     }
 
     @Provides
