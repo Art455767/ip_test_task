@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.firebase.components)
+    implementation(libs.androidx.media3.common.ktx)
     kapt(libs.hilt.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.compose.material)

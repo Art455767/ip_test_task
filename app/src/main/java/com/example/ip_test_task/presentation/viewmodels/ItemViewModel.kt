@@ -24,7 +24,6 @@ class ItemViewModel @Inject constructor(
     val items: MutableLiveData<List<Item>?> get() = _items
 
     init {
-        initializeItems()
         loadItems()
     }
 
@@ -33,12 +32,6 @@ class ItemViewModel @Inject constructor(
             getItemsUseCase().collect { itemList ->
                 _items.value = itemList
             }
-        }
-    }
-
-    private fun initializeItems() {
-        viewModelScope.launch {
-            itemRepository.initializeItems()
         }
     }
 

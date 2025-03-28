@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-03-17T13:54:36.799934500Z">
+        <DropdownSelection timestamp="2025-03-26T09:32:45.071229700Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\DIGMA\.android\avd\IP_TEST_TASK_API_30.avd" />
