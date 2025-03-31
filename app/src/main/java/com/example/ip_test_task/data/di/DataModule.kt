@@ -1,7 +1,6 @@
 package com.example.ip_test_task.data.di
 
 import android.content.Context
-import androidx.room.Room
 import com.example.ip_test_task.data.local.AppDatabase
 import com.example.ip_test_task.data.local.ItemDao
 import com.example.ip_test_task.data.repositories.ItemRepositoryImpl
@@ -19,13 +18,7 @@ object DataModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
-        return Room.databaseBuilder(
-            context,
-            AppDatabase::class.java,
-            "data.db"
-        )
-            .createFromAsset("data.db")
-            .build()
+        return AppDatabase.getDatabase(context)
     }
 
     @Provides

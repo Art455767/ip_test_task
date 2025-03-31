@@ -20,8 +20,8 @@ class ItemViewModel @Inject constructor(
     private val itemRepository: ItemRepository,
 ) : ViewModel() {
 
-    private val _items = MutableLiveData<List<Item>?>()
-    val items: MutableLiveData<List<Item>?> get() = _items
+    private val _items = MutableLiveData<List<Item>>(emptyList())
+    val items: MutableLiveData<List<Item>> get() = _items
 
     init {
         loadItems()
