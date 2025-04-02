@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.ip_test_task.R
 
@@ -32,16 +33,16 @@ fun DeleteConfirmationDialog(onDismiss: () -> Unit, onDeleteConfirmed: () -> Uni
             ) {
                 Icon(
                     imageVector = Icons.Default.Warning,
-                    contentDescription = "Предупреждение",
+                    contentDescription = stringResource(id = R.string.deleting_item),
                     tint = Color.Gray
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "Удаление товара")
+                Text(text = stringResource(id = R.string.deleting_item))
             }
         },
         text = {
             Box(modifier = Modifier.height(36.dp)) {
-                Text("Вы действительно хотите удалить данный товар?")
+                Text(stringResource(id = R.string.delete_confirmation))
             }
         },
         confirmButton = {
@@ -54,7 +55,7 @@ fun DeleteConfirmationDialog(onDismiss: () -> Unit, onDeleteConfirmed: () -> Uni
                     contentColor = colorResource(id = R.color.birch)
                 )
             ) {
-                Text("Да")
+                Text(stringResource(id = R.string.yes))
             }
         },
         dismissButton = {
@@ -64,7 +65,7 @@ fun DeleteConfirmationDialog(onDismiss: () -> Unit, onDeleteConfirmed: () -> Uni
                     contentColor = colorResource(id = R.color.birch)
                 )
             ) {
-                Text("Нет")
+                Text(stringResource(id = R.string.no))
             }
         },
         shape = RoundedCornerShape(36.dp),

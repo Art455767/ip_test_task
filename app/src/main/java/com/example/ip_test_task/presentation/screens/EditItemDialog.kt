@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ip_test_task.R
@@ -51,7 +52,7 @@ fun EditItemDialog(
             ) {
                 Icon(
                     imageVector = Icons.Default.Settings,
-                    contentDescription = "Настройки",
+                    contentDescription = stringResource(id = R.string.settings),
                     tint = Color.Gray,
                     modifier = Modifier.size(32.dp)
                 )
@@ -64,7 +65,7 @@ fun EditItemDialog(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = "Количество товара",
+                    text = stringResource(id = R.string.item_quantity),
                     fontSize = 22.sp,
                     modifier = Modifier.padding(vertical = 10.dp)
                 )
@@ -126,7 +127,7 @@ fun EditItemDialog(
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) {
-                Text(text = "Принять", color = colorResource(id = R.color.birch))
+                Text(text = stringResource(id = R.string.accept), color = colorResource(id = R.color.birch))
             }
         },
         dismissButton = {
@@ -134,7 +135,7 @@ fun EditItemDialog(
                 onClick = onDismiss,
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) {
-                Text(text = "Отмена", color = colorResource(id = R.color.birch))
+                Text(text = stringResource(id = R.string.cancel), color = colorResource(id = R.color.birch))
             }
         },
         shape = RoundedCornerShape(36.dp)

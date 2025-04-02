@@ -23,7 +23,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.ip_test_task.R
 import com.example.ip_test_task.data.local.entities.Item
 import com.example.ip_test_task.presentation.viewmodels.ItemViewModel
 
@@ -43,9 +45,9 @@ fun MainScreen(viewModel: ItemViewModel) {
         TextField(
             value = searchQuery,
             onValueChange = { searchQuery = it },
-            label = { Text("Поиск товара") },
+            label = { Text(stringResource(id = R.string.search_item)) },
             leadingIcon = {
-                Icon(Icons.Default.Search, contentDescription = "Поиск")
+                Icon(Icons.Default.Search, contentDescription = stringResource(id = R.string.search_item))
             },
             modifier = Modifier
                 .fillMaxWidth()

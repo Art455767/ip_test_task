@@ -9,12 +9,12 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ip_test_task">
-        <activity
+        android:theme="@style/Theme.Ip_test_task.Dark">
+    <activity
             android:name=".presentation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Ip_test_task">
+            android:theme="@style/Theme.Ip_test_task.Dark">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

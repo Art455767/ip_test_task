@@ -25,10 +25,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ip_test_task.R
 import com.example.ip_test_task.data.local.entities.Item
 import java.util.Date
 import java.util.Locale
@@ -67,7 +69,7 @@ fun ItemCard(item: Item, onEdit: () -> Unit, onDelete: () -> Unit) {
                     IconButton(onClick = onEdit, modifier = Modifier.size(24.dp)) {
                         Icon(
                             imageVector = Icons.Default.Edit,
-                            contentDescription = "Редактировать",
+                            contentDescription = stringResource(id = R.string.edit),
                             tint = Color.Blue
                         )
                     }
@@ -75,7 +77,7 @@ fun ItemCard(item: Item, onEdit: () -> Unit, onDelete: () -> Unit) {
                     IconButton(onClick = onDelete, modifier = Modifier.padding(end = 8.dp)) {
                         Icon(
                             imageVector = Icons.Default.Delete,
-                            contentDescription = "Удалить",
+                            contentDescription = stringResource(id = R.string.delete),
                             tint = Color.Red
                         )
                     }
@@ -113,7 +115,7 @@ fun ItemCard(item: Item, onEdit: () -> Unit, onDelete: () -> Unit) {
                     modifier = Modifier.padding(start = 14.dp, bottom = 0.dp)
                 ) {
                     Text(
-                        text = "На складе",
+                        text = stringResource(id = R.string.in_stock),
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(top = 16.dp)
                     )
@@ -128,7 +130,7 @@ fun ItemCard(item: Item, onEdit: () -> Unit, onDelete: () -> Unit) {
                     modifier = Modifier.padding(end = 56.dp, bottom = 0.dp)
                 ) {
                     Text(
-                        text = "Дата добавления",
+                        text = stringResource(id = R.string.date_added),
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(top = 16.dp)
                     )
