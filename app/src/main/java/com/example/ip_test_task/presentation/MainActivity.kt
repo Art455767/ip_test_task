@@ -5,6 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.ip_test_task.presentation.screens.MainScreen
+import com.example.ip_test_task.presentation.theme.AppTheme
 import com.example.ip_test_task.presentation.viewmodels.ItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val viewModel: ItemViewModel = hiltViewModel()
-            MainScreen(viewModel = viewModel)
+            AppTheme {
+                MainScreen(viewModel = viewModel)
+            }
         }
     }
 }

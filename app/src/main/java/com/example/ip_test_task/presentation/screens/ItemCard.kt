@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ip_test_task.R
 import com.example.ip_test_task.data.local.entities.Item
+import com.example.ip_test_task.presentation.theme.AppTheme
 import java.util.Date
 import java.util.Locale
 
@@ -146,9 +147,24 @@ fun ItemCard(item: Item, onEdit: () -> Unit, onDelete: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewItemCard() {
-    ItemCard(
-        item = Item(id = 1, name = "Sample Item", time = System.currentTimeMillis(), tags = "tag1, tag2", amount = 10),
-        onEdit = {},
-        onDelete = {}
-    )
+    AppTheme(useDarkTheme = false) {
+        ItemCard(
+            item = Item(
+                id = 1,
+                name = "Sample Item",
+                time = System.currentTimeMillis(),
+                tags = "tag1, tag2",
+                amount = 10
+            ),
+            onEdit = {},
+            onDelete = {}
+        )
+    }
+    AppTheme(useDarkTheme = true) {
+        ItemCard(
+            item = Item(id = 1, name = "Sample Item", time = System.currentTimeMillis(), tags = "tag1, tag2", amount = 10),
+            onEdit = {},
+            onDelete = {}
+        )
+    }
 }

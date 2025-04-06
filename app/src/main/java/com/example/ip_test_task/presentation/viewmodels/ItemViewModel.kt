@@ -17,7 +17,6 @@ class ItemViewModel @Inject constructor(
     private val getItemsUseCase: GetItemsUseCase,
     private val insertItemUseCase: InsertItemUseCase,
     private val deleteItemUseCase: DeleteItemUseCase,
-    private val itemRepository: ItemRepository,
 ) : ViewModel() {
 
     private val _items = MutableLiveData<List<Item>>(emptyList())

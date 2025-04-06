@@ -58,7 +58,6 @@ dependencies {
     implementation(libs.firebase.components)
     implementation(libs.androidx.media3.common.ktx)
     implementation(libs.androidx.ui.tooling.preview.android)
-    kapt(libs.hilt.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.runtime.livedata)
@@ -67,7 +66,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
-
     implementation(libs.retrofit)
+    debugImplementation(libs.ui.tooling)
+
+    kapt(libs.androidx.room.compiler)
+    kapt(libs.hilt.compiler)
+
 }
